@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title>SVG et Javascript</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      button {
+        font-size: 200%;
+        clear: left;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+    </style>
+ 
+  
+  </head>
+
+  <body>
+  
+ <p>SVG et Javascript<p>
+
+  <object id="svgExt" width="200" height="100" type="image/svg+xml" data="circles.svg"></object>
+
+  <button onclick="extYellow();"">yellow</button>
+
+   <script>
+
+   // Le code suivant charge le fichier SVG externe, 
+   // afin de le rendre accessible par Javascript
+
+    var svgExt = document.getElementById("svgExt");
+    var svgDoc;
+
+    // On définit tous les objets SVG qu'on souhaite ensuite manipuler
+    var extCircle1;
+    var extCircle2;
+
+    svgExt.addEventListener("load",function() {
+          
+          svgDoc = svgExt.contentDocument;
+          // alert("SVG contentDocument Loaded!");
+
+          // Le SVG est chargé, on peut maintenant
+          // définir les formes qu'on souhaite manipuler
+          extCircle1 = svgDoc.getElementById("circle1");
+          extCircle2 = svgDoc.getElementById("circle2");
+
+          // On va rendre "sensible au clic" un élément du SVG
+          extCircle1.addEventListener("click", svgClic);
+
+     }, false);
+
+
+    function svgClic(){
+    
+      // ce qui se passe quand on clique sur l'élément SVG extCircle1
+      // alert("svgClic");
+      extCircle2.style.fill="cyan";
+    }
+
+    function extYellow(){ 
+    
+      // ici, on change la couleur du SVG externe
+      // l'élément extCircle1 a été défini plus haut
+
+      extCircle1.style.fill="yellow";
+    } 
+  
+  </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document sans nom</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+            button {
+              font-size: 200%;
+            }
+    </style>
+</head>
+
+<body>
+
+<object id="carte" width="400" height="300" type="image/svg+xml" data="carte1.svg"></object>
+
+<button type="button">Click me</button>
+
+<script>
+	
+
+	var button = document.querySelector("button");
+
+  button.addEventListener("click", animate);
+
+
+  function animate() {
+
+    
+  	var svg = document.getElementById("carte"); 
+	
+	var svgDoc = svg.contentDocument;
+
+	console.log(svgDoc);
+	
+	var circle = svgDoc.getElementById("my-circle");
+
+	var bordure = svgDoc.querySelector(".st0");
+	
+	// circle.setAttributeNS(null, "cx", 80);
+
+	bordure.setAttribute("style", "fill: red");
+
+
+  }
+
+// 
+
+
+
+</script>
+
+</body>
+</html>
