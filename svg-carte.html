@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title>SVG et Javascript</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      button {
+        font-size: 200%;
+        clear: left;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+    </style>
+ 
+  
+  </head>
+
+  <body>
+  
+ <p>SVG et Javascript<p>
+
+  <object id="carte" width="600" height="300" type="image/svg+xml" data="carte.svg"></object>
+
+   <script>
+
+   // Le code suivant charge le fichier SVG externe, 
+   // afin de le rendre accessible par Javascript
+
+    var svgCarte = document.getElementById("carte");
+
+    // contenu carte
+    var svgDocCarte;
+
+    // On définit tous les objets SVG qu'on souhaite ensuite manipuler
+
+    var carteForme;
+
+    // On vérifie que le contenu du fichier SVG soit vraiement chargé:
+
+    svgCarte.addEventListener("load",function() {
+          
+          // On accède au contenu du fichier SVG:
+          svgDocCarte = svgCarte.contentDocument;
+
+          // // Le SVG est chargé, on peut maintenant
+          // // définir les formes qu'on souhaite manipuler
+          
+          carteForme = svgDocCarte.querySelector(".st6:nth-child(4)");
+
+          // on change la couleur de fond de l'élément
+
+          carteForme.style.fill="cyan";
+
+          // on rend l'élément sensible au click ("click") ou hover ("mouseover")
+
+          carteForme.addEventListener("mouseover", function() {
+
+              carteForme.style.fill="blue";
+          
+          });
+          
+          // });
+
+     }, false);
+
+
+  
+  </script>
+  </body>
+</html>
