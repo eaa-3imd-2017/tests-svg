@@ -49,6 +49,14 @@
           // On va rendre "sensible au clic" un élément du SVG
           extCircle1.addEventListener("click", svgClic);
 
+          // On va rendre sensible également le 2ème rond
+          extCircle2.addEventListener("click", function() {
+
+              extCircle1.style.fill="red";
+              extCircle2.style.fill="red";
+          
+          });
+
      }, false);
 
 
@@ -58,6 +66,8 @@
       // alert("svgClic");
       extCircle2.style.fill="cyan";
     }
+
+    
 
     function extYellow(){ 
     
